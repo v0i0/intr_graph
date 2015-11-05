@@ -130,12 +130,12 @@ intr_info = {
     "_mm256_unpackhi_ps": permutation_intr(function(d, i) {
         var ii = i % 4;
         var off = 4 * Math.floor(i / 4);
-        return d.arg(ii % 2, 2 + offs + Math.floor(ii / 2));
+        return d.arg(ii % 2, 2 + off + Math.floor(ii / 2));
     }),
     "_mm256_unpacklo_ps": permutation_intr(function(d, i) {
         var ii = i % 4;
         var off = 4 * Math.floor(i / 4);
-        return d.arg(ii % 2, offs + Math.floor(ii / 2));
+        return d.arg(ii % 2, off + Math.floor(ii / 2));
     })
 }
 function intr_to_graph(d) {
