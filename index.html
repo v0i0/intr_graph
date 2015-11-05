@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/vendor/Viz.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <textarea name="intr_code" id="intr_code_txt" style="width: 500px; height: 200px">
+__m256 a8;
+__m256 b8 = _mm256_permute_ps(a8, 0xB1);
+__m256 a4 = _mm256_max_ps(a8, b8);
+__m256 b4 = _mm256_permute_ps(a4, 0x02);
+__m256 a2 = _mm256_max_ps(a4, b4);
+__m256 b2 = _mm256_permute2f128_ps(a2, a2, 0x01);
+__m256 a1 = _mm256_max_ps(a2, b2);
+        </textarea>
+        <textarea id="intr_code_repr" style="width: 500px; height: 200px">
+
+        </textarea>
+        <textarea id="intr_code_graph" style="width: 500px; height: 200px">
+digraph structs {
+ node [shape=record];
+ struct1 [shape=record,label="<f0> left|<f1> middle|<f2> right"];
+ struct2 [shape=record,label="<f0> one|<f1> two"];
+ struct3 [shape=record,label="hello\nworld |{ b |{c|<here> d|e}| f}| g | h"];
+ struct1:f1 -> struct2:f0;
+ struct1:f2 -> struct3:here;
+}
+        </textarea>
+        <div id="intr_graph">
+        </div>
+    </body>
+</html>
